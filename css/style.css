@@ -1,0 +1,30 @@
+#footer{
+    background-color: #3296CE;
+    position: absolute;
+    height: 40px;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+#header{
+    background-color: #3296CE;
+    height: 50px;
+    width: 100%;
+    color: white;
+}
+
+#login-form{
+    /*width: auto !important;
+    top: 500px !important;
+    right: 50px !important;
+    position: absolute;*/
+    margin-top: 250px;
+    margin-left: 150px;
+}
+
+#login-btn{
+    background-color:#3296CE;
+    color: white;
+}
