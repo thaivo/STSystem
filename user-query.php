@@ -1,6 +1,6 @@
 <?php
 
-function getUserNameById($id){
+function getUserFullNameById($id){
     $xml = simplexml_load_file("xml/Users.xml");
     $name = $xml->xpath("//User[@UserId='$id']/Name/First/text()")[0]. ' ';
     if($xml->xpath("//User[@UserId='$id']/Name/Middle/text()"))

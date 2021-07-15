@@ -6,10 +6,11 @@ $Tickets = '';
 foreach ($xmlDoc->children() as $ticket){
     $userId = $ticket['OwnerId'];
     $status = $ticket['Status'];
+    $ticketId = $ticket['Id'];
     echo 'userId = '.$userId;
     echo 'status = '.$status;
     //$userName = getUserNameById($userId);
-    $userName = getUserNameById($userId);
+    $userFullName = getUserFullNameById($userId);
 
     //echo  "1 name : ".$userName->Name->First;
 
@@ -21,8 +22,10 @@ foreach ($xmlDoc->children() as $ticket){
     $Tickets .= '</h3>';
     $Tickets .= '<div class="card-body d-sm-flex flex-sm-row">
             <p class="card-text flex-fill bd-highlight  align-middle">';
-    $Tickets .= '<a href="ticket-detail.php". class="stretched-link">';
-    $Tickets .= 'Created by: '. $userName;
+    //$href = 'ticket-detail.php?id='.$ticketId;
+    //$Tickets .= '<a href="ticket-detail.php" class="stretched-link">';
+    $Tickets .= '<a href="ticket-detail.php?id='.$ticketId.'" class="stretched-link">';
+    $Tickets .= 'Created by: '. $userFullName;
     $Tickets .= '</a>';
     $Tickets .= '</p>';
     $Tickets .= '<p class="card-text flex-fill bd-highlight align-middle">';

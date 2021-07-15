@@ -12,7 +12,10 @@ function createListOptionElements($st){
     }
     return $result;
 }
-
+function getTicketById($id){
+    $xml = simplexml_load_file("xml/SupportTickets.xml");
+    return $xml->xpath("//SupportTicket[@Id='$id']")[0];
+}
 /*<option value="Resolved" selected>Resolved</option>
                 <option value="In progress">In progress</option>
                 <option value="Closed">Closed</option>
