@@ -1,4 +1,42 @@
 <?php
+require_once 'user-query.php';
+require_once 'ticket-query.php';
+$xmlDoc = simplexml_load_file("xml/SupportTickets.xml");
+$Tickets = '';
+foreach ($xmlDoc->children() as $ticket){
+    $userId = $ticket['OwnerId'];
+    $status = $ticket['Status'];
+    echo 'userId = '.$userId;
+    echo 'status = '.$status;
+    //$userName = getUserNameById($userId);
+    $userName = getUserNameById($userId);
+
+    //echo  "1 name : ".$userName->Name->First;
+
+    $CreatedDate = $ticket->Messages->Message[0]->Date;
+    echo "CreatedDate: ".$CreatedDate;
+    $Tickets .= '<div class="card m-2">';
+    $Tickets .= '<h3 class="card-header">';
+    $Tickets .= 'Subject: '.$ticket->Subject;
+    $Tickets .= '</h3>';
+    $Tickets .= '<div class="card-body d-sm-flex flex-sm-row">
+            <p class="card-text flex-fill bd-highlight  align-middle">';
+    $Tickets .= '<a href="ticket-detail.php". class="stretched-link">';
+    $Tickets .= 'Created by: '. $userName;
+    $Tickets .= '</a>';
+    $Tickets .= '</p>';
+    $Tickets .= '<p class="card-text flex-fill bd-highlight align-middle">';
+    $Tickets .= 'Date time: '.$CreatedDate;
+    $Tickets .= '</p>';
+    $Tickets .= '<label for="status" class="flex-fill bd-highlight align-middle">Status:</label>';
+    $Tickets .= '<select id="status" class="form-select flex-fill bd-highlight align-middle">';
+    $Tickets .= createListOptionElements($status);
+    $Tickets .= '</select>';
+    $Tickets .= '</div>';
+    $Tickets .= '</div>';
+
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -19,7 +57,10 @@ require_once 'header.php';
 <h1>List of tickets</h1>
 <div class="d-flex flex-column">
     <!--List of tickets-->
-    <div class="card m-2">
+    <?php
+    echo $Tickets
+    ?>
+    <!--<div class="card m-2">
         <h3 class="card-header">
             Subject: abc
         </h3>
@@ -54,7 +95,7 @@ require_once 'header.php';
                 <option value="Reopened">Reopened</option>
             </select>
         </div>
-    </div>
+    </div>-->
 </div>
 </main>
 <?php
