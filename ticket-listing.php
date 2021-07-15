@@ -15,14 +15,45 @@
 <?php
 require_once 'header.php';
 ?>
-<main>
+<main class="container">
 <h1>List of tickets</h1>
-<div>
-    <div>
+<div class="d-flex flex-column">
+    <!--List of tickets-->
+    <div class="card m-2">
+        <h3 class="card-header">
+            Subject: abc
+        </h3>
+        <div class="card-body">
+            <p class="card-text">
+                <a href="#" class="stretched-link">
+                    Created by: John Doe
+                </a>
 
+            </p>
+            <p class="card-text">Date time: 2021-05-26 10:30:20</p>
+
+        </div>
     </div>
-    <div>
+    <div class="card m-2">
+        <h3 class="card-header">
+            Subject: abc
+        </h3>
+        <div class="card-body d-sm-flex flex-sm-row">
+            <p class="card-text flex-fill bd-highlight  align-middle">
+                <a href="ticket-detail.php". class="stretched-link">
+                    Created by: John Doe
+                </a>
+            </p>
 
+            <p class="card-text flex-fill bd-highlight align-middle">Date time: 2021-05-26 10:30:20</p>
+            <label for="status" class="flex-fill bd-highlight align-middle">Status:</label>
+            <select id="status" class="form-select flex-fill bd-highlight align-middle">
+                <option value="Resolved" selected>Resolved</option>
+                <option value="In progress">In progress</option>
+                <option value="Closed">Closed</option>
+                <option value="Reopened">Reopened</option>
+            </select>
+        </div>
     </div>
 </div>
 </main>

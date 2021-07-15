@@ -1,3 +1,9 @@
+/*For the list of messages in ticket-detail.php*/
+ul{
+    list-style-type: none;
+    padding-left: 0;
+}
+
 #footer{
     background-color: #3296CE;
     position: absolute;
@@ -27,4 +33,30 @@
 #login-btn{
     background-color:#3296CE;
     color: white;
+}
+
+select{
+    width: auto !important;
+}
+
+#status{
+    z-index: 1;
+    position: relative;
+}
+
+#back-btn{
+    color: white;
+    border: #3296CE solid 2px;
+    background-color: #3296CE;
+    padding: 10px 20px;
+}
+
+#submitMsgBtn{
+    color: #fff;
+    background-color: #3296CE;
+    border-color: #3296CE;
+}
+
+#messageArea{
+    height: 150px;
 }
