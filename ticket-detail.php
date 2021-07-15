@@ -1,7 +1,9 @@
 <?php
 require_once 'ticket-query.php';
 require_once 'user-query.php';
+require_once 'message-query.php';
 $listOfMessages = '';
+$id = '';
 if($_GET['id'] !== null){
     $id = $_GET['id'];
     echo "id: ".$id;
@@ -37,6 +39,22 @@ if($_GET['id'] !== null){
         $listOfMessages .= '</p></div></div></li>';
     }
     //for ($i = 0; $i < )
+}
+
+if(isset($_POST['submitMsg'])){
+    $msg = $_POST['message'];
+    if (!empty($msg)){
+        date_default_timezone_set('America/Toronto');
+        $currentDateTime = date('Y-m-dTh:i:s',time());
+        //hard-coding userId is 1
+        $result = submitMessage($id, $currentDateTime,$msg,'1');
+        if ($result){
+            echo 'Submitted message successfully';
+        }
+        else{
+            echo 'Failed to submit message';
+        }
+    }
 }
 ?>
 <!doctype html>
@@ -129,13 +147,13 @@ require_once 'header.php';
     </ul>
 
 
-    <form action="post" class="d-flex">
+    <form action="" method="post" class="d-flex">
         <div class="form-floating mb-3 flex-fill">
-            <textarea class="form-control" placeholder="Leave a message here" id="messageArea"></textarea>
+            <textarea class="form-control" placeholder="Leave a message here" id="messageArea" name="message"></textarea>
             <label for="messageArea">Message</label>
         </div>
 
-            <input id="submitMsgBtn" type="submit" class="btn align-self-start">
+            <input id="submitMsgBtn" name="submitMsg" type="submit" class="btn align-self-start">
 
     </form>
 
