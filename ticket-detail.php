@@ -1,7 +1,9 @@
 <?php
 require_once 'ticket-query.php';
 require_once 'user-query.php';
+//echo "ticket-detail.php: START require_one message-query.php";
 require_once 'message-query.php';
+//echo "ticket-detail.php: END require_one message-query.php";
 $listOfMessages = '';
 $id = '';
 if($_GET['id'] !== null){
@@ -11,19 +13,11 @@ if($_GET['id'] !== null){
     $ownerId = $selectedTicket['OwnerId'];
     $userFullName = getUserFullNameById($ownerId);
     $subject = $selectedTicket->Subject;
-    /*echo "Date Created: ".$selectedTicket->Messages->Message[0]->Date;
-    echo "<br>";
-    echo "Content: ".$selectedTicket->Messages->Message[0]->Content;
-    echo "<br>";
-    echo "Content: ".$selectedTicket->Messages->Message[1]->Content;
-    echo "<br>";
-    echo "Status: ".$selectedTicket['Status'];*/
-    //var_dump($selectedTicket->Messages);
-    foreach ($selectedTicket->Messages->children() as $message){
-        //var_dump($message);
-        /*echo "user: ".$message['UserId'];
-        echo "Date: ".$message->Date;
-        echo "Content: ".$message->Content;*/
+    echo "ticket-detail.php: START get listOfMessages";
+    $listOfMessages = getMessagesStrByMessagesObj($selectedTicket->Messages);
+    echo "ticket-detail.php: END GET listOfMessages";
+    /*foreach ($selectedTicket->Messages->children() as $message){
+
         $listOfMessages .= '<li>
                                 <div class="card m-2">
                                     <div class="card-header d-flex flex-row">
@@ -37,8 +31,7 @@ if($_GET['id'] !== null){
             <p class="card-text">';
         $listOfMessages .= $message->Content;
         $listOfMessages .= '</p></div></div></li>';
-    }
-    //for ($i = 0; $i < )
+    }*/
 }
 
 if(isset($_POST['submitMsg'])){
@@ -69,6 +62,7 @@ if(isset($_POST['submitMsg'])){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/handler.js"></script>
 </head>
 <body>
 <?php
@@ -102,7 +96,7 @@ require_once 'header.php';
             <option value="Reopened">Reopened</option>-->
         </select>
     </div>
-    <ul>
+    <ul id="list_messages">
         <?php
         echo $listOfMessages;
         ?>
