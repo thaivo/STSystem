@@ -24,21 +24,11 @@ function getMessagesStrByMessagesObj($messages,$echo = false): string
 {
     $listOfMessages = '';
     foreach ($messages->children() as $message) {
-        //var_dump($message);
-        /*echo "user: ".$message['UserId'];
-        echo "Date: ".$message->Date;
-        echo "Content: ".$message->Content;*/
-        $listOfMessages .= '<li>
-                                <div class="card m-2">
-                                    <div class="card-header d-flex flex-row">
-                                        <div class="flex-fill">';
+        $listOfMessages .= '<li><div class="card m-2"><div class="card-header d-flex flex-row"><div class="flex-fill">';
         $listOfMessages .= 'From: ' . getUserFullNameById($message['UserId']);
         $listOfMessages .= '</div><div class="flex-fill">';
         $listOfMessages .= 'Date: ' . $message->Date;
-        $listOfMessages .= '</div>
-        </div>
-        <div class="card-body">
-            <p class="card-text">';
+        $listOfMessages .= '</div></div><div class="card-body"><p class="card-text">';
         $listOfMessages .= $message->Content;
         $listOfMessages .= '</p></div></div></li>';
     }

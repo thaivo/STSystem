@@ -6,6 +6,7 @@ require_once 'message-query.php';
 //echo "ticket-detail.php: END require_one message-query.php";
 $listOfMessages = '';
 $id = '';
+$userId = 1;//to test message submission when I need to pass php var to js var
 if($_GET['id'] !== null){
     $id = $_GET['id'];
     echo "id: ".$id;
@@ -37,10 +38,9 @@ if($_GET['id'] !== null){
 if(isset($_POST['submitMsg'])){
     $msg = $_POST['message'];
     if (!empty($msg)){
-        date_default_timezone_set('America/Toronto');
-        $currentDateTime = date('Y-m-dTh:i:s',time());
+
         //hard-coding userId is 1
-        $result = submitMessage($id, $currentDateTime,$msg,'1');
+        $result = submitMessage($id,$msg,'1');
         if ($result){
             echo 'Submitted message successfully';
         }
@@ -50,6 +50,8 @@ if(isset($_POST['submitMsg'])){
     }
 }
 ?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -100,7 +102,85 @@ require_once 'header.php';
         <?php
         echo $listOfMessages;
         ?>
-        <!--<li>
+    </ul>
+
+
+    <form action="" method="post" class="d-flex" id="messageForm">
+        <div class="form-floating mb-3 flex-fill">
+            <textarea class="form-control" placeholder="Leave a message here" id="messageArea" name="message"></textarea>
+            <label for="messageArea">Message</label>
+        </div>
+
+            <input id="submitMsgBtn" name="submitMsg" type="submit" class="btn align-self-start">
+
+    </form>
+
+</div>
+
+</main>
+
+<?php
+require_once 'footer.php';
+?>
+</body>
+<script async defer type="text/javascript">
+    let messageForm = document.getElementById("messageForm");
+    messageForm.addEventListener('submit',asyncSubmitMessage);
+    function preventDefaultBehavior(event) {
+        event.preventDefault();
+    }
+    function asyncSubmitMessage(event) {
+        event.preventDefault();
+        //let submitMsgBtn = document.getElementById("submitMsgBtn");
+        let message = document.getElementById("messageArea");
+        //messageForm.onsubmit =
+        //submitMsgBtn.addEventListener('submit',function (event) {
+        //let xmlHttpRequest = new XMLHttpRequest();
+            xmlHttpRequest.onreadystatechange = function () {
+                if (this.status === 200  && this.readyState === 4 ){
+                    console.log("success to submit ticket");
+                }
+            }
+
+            xmlHttpRequest.open("POST","submit-message.php");
+            xmlHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            let userId = <?php echo $userId  ?>;
+            let ticketId = <?php echo $id ?>;
+            console.log("ticketId: "+userId);
+
+            console.log("ticket-detail.php:143 message.textContent: "+message.textContent);
+
+
+            xmlHttpRequest.send("ticketId="+ticketId+"&userId="+userId+"&message="+message.value);
+        //});
+        //clear message:
+        message.value = "";
+    }
+    /*let submitMsgBtn = document.getElementById("submitMsgBtn");
+    let messageForm = document.getElementById("messageForm");
+    //messageForm.onsubmit =
+    //submitMsgBtn.addEventListener('submit',function (event) {
+    submitMsgBtn.submit(function (event) {
+        event.preventDefault();
+        xmlHttpRequest.onreadystatechange = function () {
+            if (this.status === 200  && this.readyState === 4 ){
+                console.log("success to submit ticket");
+            }
+        }
+
+        xmlHttpRequest.open("POST","submit-message.php");
+        xmlHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        let userId = <?php echo $userId  ?>;
+        let ticketId = <?php echo $id ?>;
+        console.log("ticketId: "+userId);
+        console.log("ticket-detail.php:143");
+
+
+        xmlHttpRequest.send("ticketId="+ticketId+"&userId="+userId+"&message="+messageForm.innerText);
+    });*/
+</script>
+</html>
+<!--<li>
             <div class="card m-2">
                 <div class="card-header d-flex flex-row">
                     <div class="flex-fill">
@@ -138,25 +218,3 @@ require_once 'header.php';
                 </div>
             </div>
         </li>-->
-    </ul>
-
-
-    <form action="" method="post" class="d-flex">
-        <div class="form-floating mb-3 flex-fill">
-            <textarea class="form-control" placeholder="Leave a message here" id="messageArea" name="message"></textarea>
-            <label for="messageArea">Message</label>
-        </div>
-
-            <input id="submitMsgBtn" name="submitMsg" type="submit" class="btn align-self-start">
-
-    </form>
-
-</div>
-
-</main>
-
-<?php
-require_once 'footer.php';
-?>
-</body>
-</html>
