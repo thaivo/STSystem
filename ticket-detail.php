@@ -4,7 +4,7 @@ require_once 'user-query.php';
 //echo "ticket-detail.php: START require_one message-query.php";
 require_once 'message-query.php';
 //echo "ticket-detail.php: END require_one message-query.php";
-session_save_path('D:\ProgramStore\xampp\php');
+session_save_path('D:\ProgramStore\xampp\php\tmp');
 session_start();
 if(!isset($_SESSION['user'])){
     header("location: login.php");
