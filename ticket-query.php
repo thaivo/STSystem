@@ -2,6 +2,7 @@
 require_once 'ticket-query.php';
 require_once 'user-query.php';
 $ticketStatuses = array("Resolved", "In progress", "Closed", "Reopened");
+$xml = simplexml_load_file("xml/SupportTickets.xml");
 function createListOptionElements($st): string
 {
     global $ticketStatuses;
@@ -16,7 +17,7 @@ function createListOptionElements($st): string
     return $result;
 }
 function getTicketById($id){
-    $xml = simplexml_load_file("xml/SupportTickets.xml");
+    global $xml;
     return $xml->xpath("//SupportTicket[@Id='$id']")[0];
 }
 
@@ -36,6 +37,11 @@ function getMessagesStrByMessagesObj($messages,$echo = false): string
         echo $listOfMessages;
     }
     return $listOfMessages;
+}
+
+function getTicketsByOwnerId($ownerId){
+    global $xml;
+    return $xml->xpath("//SupportTicket[@OwnerId='$ownerId']");
 }
 /*<option value="Resolved" selected>Resolved</option>
                 <option value="In progress">In progress</option>

@@ -4,9 +4,15 @@ require_once 'user-query.php';
 //echo "ticket-detail.php: START require_one message-query.php";
 require_once 'message-query.php';
 //echo "ticket-detail.php: END require_one message-query.php";
+session_start();
+if(!isset($_SESSION['user'])){
+    header("location: login.php");
+}
 $listOfMessages = '';
 $id = '';
-$userId = 1;//to test message submission when I need to pass php var to js var
+
+//$userId = 1;//to test message submission when I need to pass php var to js var
+$userId = intval($_SESSION['user']);
 if($_GET['id'] !== null){
     $id = $_GET['id'];
     echo "id: ".$id;

@@ -1,9 +1,25 @@
 <?php
+session_save_path('D:\ProgramStore\xampp\php');
+session_start();
 require_once 'user-query.php';
 require_once 'ticket-query.php';
+
+$file = fopen("debug.txt","a+");
+fwrite($file, '\n'.'isset(SESSION[user] ='.$_SESSION['user']);
+fclose($file);
+if (!isset($_SESSION['user'])){
+    header("location: login.php");
+}
 $xmlDoc = simplexml_load_file("xml/SupportTickets.xml");
+$tickets = [];
+if(!isset($_SESSION['admin'])){//for normal users
+    $tickets = getTicketsByOwnerId($_SESSION['user']);
+}
+else{
+    $tickets= $xmlDoc->children();
+}
 $Tickets = '';
-foreach ($xmlDoc->children() as $ticket){
+foreach ($tickets as $ticket){
     $userId = $ticket['OwnerId'];
     $status = $ticket['Status'];
     $ticketId = $ticket['Id'];
@@ -32,9 +48,14 @@ foreach ($xmlDoc->children() as $ticket){
     $Tickets .= 'Date time: '.$CreatedDate;
     $Tickets .= '</p>';
     $Tickets .= '<label for="status" class="flex-fill bd-highlight align-middle">Status:</label>';
-    $Tickets .= '<select id="status" class="form-select flex-fill bd-highlight align-middle">';
-    $Tickets .= createListOptionElements($status);
-    $Tickets .= '</select>';
+    if (isset($_SESSION['admin'])){
+        $Tickets .= '<select id="status" class="form-select flex-fill bd-highlight align-middle">';
+        $Tickets .= createListOptionElements($status);
+        $Tickets .= '</select>';
+    }
+    else{
+        $Tickets .= '<text>'.$status.'</text>';
+    }
     $Tickets .= '</div>';
     $Tickets .= '</div>';
 

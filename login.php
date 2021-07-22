@@ -1,4 +1,53 @@
 <?php
+session_save_path('D:\ProgramStore\xampp\php');
+session_start();
+require_once "user-query.php";
+
+if (isset($_POST['login'])){
+    $passwordErrorMsg = '';
+    $userNameErrorMsg = '';
+    if (isset($_POST['username'])){
+        if (doesUserNameExist($_POST['username'])){
+            if (isset($_POST['password'])){
+                if(verifyPasswordByUserName($_POST['username'],$_POST['password'])){
+                    if (isAdmin($_POST['username'])){
+                        $_SESSION['admin'] = '1';
+                    }
+                    //LESSON_LEARN:
+                    //IN getUserIdByUserName
+                    //Assume X is $xml->xpath("//User[LoginInfo/UserName/text()='$username']/@UserId")[0][0]
+                    //X is an object so If not using intval function to get integer value of X
+                    //And then assign return value from getUserIdByUserName to $_SESSION['user']
+                    //When redirecting to another page, X is destroyed and $_SESSION['user'] that point to X is also NULL.
+                    //that is the root cause and the reason for using intval function in getUserIdByUserName.
+                    $_SESSION['user'] = getUserIdByUserName($_POST['username']);
+                    $file = fopen("debug.txt","a+");
+                    fwrite($file, 'isset(SESSION[user] ='.$_SESSION['user']);
+                    fclose($file);
+                    //echo 'userId = '.$_SESSION['user'];
+
+                    //header('Location: ticket-listing.php',true,302);//NOTE: Status code : 302 Found
+                    header('Location: ticket-listing.php');
+                    //Reference:https://stackoverflow.com/questions/9363760/301-or-302-redirection-with-php
+                    //https://www.php.net/manual/en/function.header.php
+                    exit();
+                }
+                else{
+                    $passwordErrorMsg = "incorrect password";
+                }
+            }
+            else{
+                $passwordErrorMsg = "password is empty";
+            }
+        }
+        else{
+            $userNameErrorMsg = "username does not exist";
+        }
+    }
+    else{
+        $userNameErrorMsg = "username is empty";
+    }
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -27,18 +76,21 @@ require_once 'header.php';
                 <label for="username" class="form-label">
                     Username:
                 </label>
-                <input type="text" id="username" class="form-control" placeholder="your username">
+                <input type="text" name="username" id="username" class="form-control" placeholder="your username">
+                <br><span><?= !isset($userNameErrorMsg)? '': $userNameErrorMsg; ?></span>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">
                     Password:
                 </label>
-                <input id="password" type="password" class="form-control" placeholder="your password">
+                <input name="password" id="password" type="password" class="form-control" placeholder="your password">
+                <br><span><?= !isset($passwordErrorMsg)? '': $passwordErrorMsg; ?></span>
             </div>
             <div class="text-end">
-                <input id="login-btn" type="submit" class="btn me-2 mb-2" name="submit" value="login">
+                <input id="login-btn" type="submit" class="btn me-2 mb-2" name="login" value="login">
             </div>
         </form>
+        <a href="signup.php">Signup up</a>
     </div>
 </div>
 </main>
