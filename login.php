@@ -1,5 +1,5 @@
 <?php
-session_save_path('D:\ProgramStore\xampp\php');
+session_save_path('D:\ProgramStore\xampp\php\tmp');
 session_start();
 require_once "user-query.php";
 
@@ -19,14 +19,9 @@ if (isset($_POST['login'])){
                     //X is an object so If not using intval function to get integer value of X
                     //And then assign return value from getUserIdByUserName to $_SESSION['user']
                     //When redirecting to another page, X is destroyed and $_SESSION['user'] that point to X is also NULL.
+                    //ANd then, cannot accessing $_SESSION['user'] in another page, because it is NULL.
                     //that is the root cause and the reason for using intval function in getUserIdByUserName.
                     $_SESSION['user'] = getUserIdByUserName($_POST['username']);
-                    $file = fopen("debug.txt","a+");
-                    fwrite($file, 'isset(SESSION[user] ='.$_SESSION['user']);
-                    fclose($file);
-                    //echo 'userId = '.$_SESSION['user'];
-
-                    //header('Location: ticket-listing.php',true,302);//NOTE: Status code : 302 Found
                     header('Location: ticket-listing.php');
                     //Reference:https://stackoverflow.com/questions/9363760/301-or-302-redirection-with-php
                     //https://www.php.net/manual/en/function.header.php

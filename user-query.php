@@ -1,7 +1,14 @@
 <?php
-$xml = simplexml_load_file("xml/Users.xml");
+
 function getUserFullNameById($id){
-    global $xml;
+    //LESSON:should not initialize $xml as a global var
+    // with this statement  $xml = simplexml_load_file("xml/Users.xml");
+    //Because it would not load the new content of xml/Users.xml
+    //global $xml;
+    $xml = simplexml_load_file("xml/Users.xml");
+    //$testId = "//User[@UserId=$id]/Name/First/text()";
+    //echo 'testId = '.$testId;
+    //var_dump($xml->xpath("//User[@UserId=$id]/Name/First/text()"));
     $name = $xml->xpath("//User[@UserId='$id']/Name/First/text()")[0]. ' ';
     if($xml->xpath("//User[@UserId='$id']/Name/Middle/text()"))
     {
@@ -13,19 +20,19 @@ function getUserFullNameById($id){
 
 function doesUserNameExist($username): array|bool
 {
-    global $xml;
+    $xml = simplexml_load_file("xml/Users.xml");
     return $xml->xpath("//User/LoginInfo/UserName[text() = '$username']");
 }
 
 //$username was already checked before calling this function and it exists in xml file.
 function verifyPasswordByUserName($username, $loginPassword){
-    global $xml;
+    $xml = simplexml_load_file("xml/Users.xml");
     return password_verify($loginPassword, $xml->xpath("//User[LoginInfo/UserName/text() = '$username']/LoginInfo/Password/text()")[0]);
 }
 
 function isAdmin($username): bool
 {
-    global $xml;
+    $xml = simplexml_load_file("xml/Users.xml");
     $isAdmin = $xml->xpath("//User[@Admin='1' and LoginInfo/UserName/text()='$username']");
     if ($isAdmin && count($isAdmin) !== 0){
         return true;
@@ -34,7 +41,7 @@ function isAdmin($username): bool
 }
 
 function getUserIdByUserName($username){
-    global $xml;
+    $xml = simplexml_load_file("xml/Users.xml");
     var_dump($xml->xpath("//User[LoginInfo/UserName/text()='$username']/@UserId")[0]);
     echo 'type is '.gettype($xml->xpath("//User[LoginInfo/UserName/text()='$username']/@UserId")[0][0]);
 
@@ -42,7 +49,7 @@ function getUserIdByUserName($username){
 }
 
 function generateNewUserId(){
-    global $xml;
+    $xml = simplexml_load_file("xml/Users.xml");
     //$result = $xml->xpath("//User[last()]/@UserId");//ISSUE: cannot load last user in xml file because result is null
     $result = $xml->xpath("//User[last()-1]/@UserId")[0];//NOTE: last User is at (last()-1) index
     //var_dump($result);
@@ -57,7 +64,7 @@ function generateNewUserId(){
 }
 
 function createNewUser($username, $password, $firstName, $lastName, $email, $middleName = ''){
-    global $xml;
+    $xml = simplexml_load_file("xml/Users.xml");
     $newUser = $xml->addChild('User');
     $newUser->addAttribute('UserId',generateNewUserId());
     $name = $newUser->addChild('Name');

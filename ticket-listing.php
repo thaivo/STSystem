@@ -1,12 +1,9 @@
 <?php
-session_save_path('D:\ProgramStore\xampp\php');
+session_save_path('D:\ProgramStore\xampp\php\tmp');
 session_start();
 require_once 'user-query.php';
 require_once 'ticket-query.php';
 
-$file = fopen("debug.txt","a+");
-fwrite($file, '\n'.'isset(SESSION[user] ='.$_SESSION['user']);
-fclose($file);
 if (!isset($_SESSION['user'])){
     header("location: login.php");
 }
@@ -15,7 +12,7 @@ $tickets = [];
 if(!isset($_SESSION['admin'])){//for normal users
     $tickets = getTicketsByOwnerId($_SESSION['user']);
 }
-else{
+else{//For admin to load all tickets
     $tickets= $xmlDoc->children();
 }
 $Tickets = '';
@@ -23,12 +20,9 @@ foreach ($tickets as $ticket){
     $userId = $ticket['OwnerId'];
     $status = $ticket['Status'];
     $ticketId = $ticket['Id'];
-    echo 'userId = '.$userId;
-    echo 'status = '.$status;
-    //$userName = getUserNameById($userId);
+    //echo 'userId = '.$userId;
+    //echo 'status = '.$status;
     $userFullName = getUserFullNameById($userId);
-
-    //echo  "1 name : ".$userName->Name->First;
 
     $CreatedDate = $ticket->Messages->Message[0]->Date;
     echo "CreatedDate: ".$CreatedDate;
