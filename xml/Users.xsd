@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Users">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="User" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Name">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="First" type="xs:string"/>
+                                        <xs:element name="Middle" minOccurs="0" type="xs:string"/>
+                                        <xs:element name="Last" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Email" type="emailType"/>
+                            <xs:element name="LoginInfo">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="UserName" type="userNameType"/>
+                                        <!--<xs:element name="Password" type="passwordType"/>-->
+                                        <xs:element name="Password" type="xs:string"/>
+
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="UserId" type="xs:positiveInteger" use="required" />
+                        <xs:attribute name="Admin" type="xs:boolean" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	<!-- reference: http://www.java2s.com/Tutorial/XML/0060__XML-Schema/Patternsyntax.htm-->
+    <xs:simpleType name="emailType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[^@]+@[^\.]+\..+"/>
+        </xs:restriction>
+    </xs:simpleType>
+<!--
+    <xs:simpleType name="userNameType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="^[A-Za-z]{4,}[0-9]{2,}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="passwordType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="^[0-9A-F]{64}"/>
+        </xs:restriction>
+    </xs:simpleType>
+	-->
+	
+	<xs:simpleType name="userNameType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z]+[0-9]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!--<xs:simpleType name="passwordType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9A-F]{64}"/>
+        </xs:restriction>
+    </xs:simpleType>-->
+</xs:schema>

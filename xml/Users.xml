@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Users.xsd">
+    <User UserId="1" Admin="1">
+        <Name>
+            <First>Michael</First>
+            <Last>Carrick</Last>
+        </Name>
+        <Email>mic234@gmail.com</Email>
+        <LoginInfo>
+            <UserName>mccarrick02</UserName>
+            <Password>1170A5B7BDA6DDB40CFF07B7B121BBAC32AA8DABA96D14E11321AD01286CA5F9</Password>
+        </LoginInfo>
+    </User>
+    <User UserId="2">
+        <Name>
+            <First>Thai</First>
+            <Middle>Nguyen</Middle>
+            <Last>Vo</Last>
+        </Name>
+        <Email>n01458860@humbermail.ca</Email>
+        <LoginInfo>
+            <UserName>thaivo886</UserName>
+            <Password>F25168700C591A800AC567814DC2615762E1DBA1E64A28F369CA63C93B1FA62D</Password>
+        </LoginInfo>
+    </User>
+    <User UserId="3">
+        <Name>
+            <First>Wayne</First>
+            <Last>Rooney</Last>
+        </Name>
+        <Email>R10striker@manu.uk</Email>
+        <LoginInfo>
+            <UserName>rooney20</UserName>
+            <Password>4F30340DAA56706302D5C59EEFE7235FA02FBE07267BED05A1763223ACA65494</Password>
+        </LoginInfo>
+    </User>
+    <User UserId="4">
+        <Name>
+            <First>John</First>
+            <Last>Stone</Last>
+        </Name>
+        <Email>jstone@gmail.com</Email>
+        <LoginInfo>
+            <UserName>jstone123</UserName>
+            <Password>$2y$10$gGHrw380q1lA0emyEPLL2uW17Lh9QEkxbeulnrtpXC0Jmv7xs7Y1u</Password>
+        </LoginInfo>
+    </User>
+    <User UserId="5">
+        <Name>
+            <First>John</First>
+            <Last>Stone</Last>
+        </Name>
+        <Email>jstone@gmail.com</Email>
+        <LoginInfo>
+            <UserName>jstone12</UserName>
+            <Password>$2y$10$Oqf.UY2CLRhGRNFWe2S1Q.PUXSlCrAkthMMjB2epb5MXMaDuQGRG2</Password>
+        </LoginInfo>
+    </User>
+<User UserId="5" Admin="1"><Name><First>Gary</First><Last>Neville</Last></Name><Email>gary.neville@gmail.com</Email><LoginInfo><UserName>gary1</UserName><Password>$2y$10$XkoJ8S2Ot/o4/ZpnEW3mUubJrj1oND4RB3HHWO0suVRBmHCEYpElG</Password></LoginInfo></User></Users>
