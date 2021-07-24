@@ -1,7 +1,7 @@
 <?php
 require_once 'ticket-query.php';
 require_once 'user-query.php';
-$ticketStatuses = array("Resolved", "In progress", "Closed", "Reopened");
+$ticketStatuses = array("Resolved", "In progress", "Closed", "Reopened", "Open");
 $xml = simplexml_load_file("xml/SupportTickets.xml");
 function createListOptionElements($st): string
 {
@@ -12,7 +12,8 @@ function createListOptionElements($st): string
         if ($status == $st){
             $selected = "selected";
         }
-        $result .= '<option value="'.$status.'" '.$selected.'>'.$status.'</option>';
+
+        $result .= '<option id="ticketStatus_'.str_replace(" ","",$status).'" value="'.$status.'" '.$selected.'>'.$status.'</option>';
     }
     return $result;
 }

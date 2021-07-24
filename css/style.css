@@ -6,9 +6,9 @@ ul{
 
 #footer{
     background-color: #3296CE;
-    /*position: absolute;*/
+    position: fixed;
     height: 40px;
-    /*bottom: 0px;*/
+    bottom: 0px;
     width: 100%;
     text-align: center;
     color: white;
@@ -60,3 +60,35 @@ select{
 #messageArea{
     height: 150px;
 }
+
+#logout{
+    color:white;
+    text-decoration: none;
+}
+
+#logout:hover{
+    color: red;
+}
+
+#status_ticket_normal_user{
+    padding-top: 7px;
+}
+
+/*#ticketStatus_Resolved{
+
+}
+
+#ticketStatus_Open{
+
+}
+
+#ticketStatus_Reopened{
+
+}
+
+#ticketStatus_Inprogress{
+
+}
+#ticketStatus_Closed{
+
+}*/

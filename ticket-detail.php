@@ -1,6 +1,7 @@
 <?php
 require_once 'ticket-query.php';
 require_once 'user-query.php';
+require_once 'html-elements.php';
 //echo "ticket-detail.php: START require_one message-query.php";
 require_once 'message-query.php';
 //echo "ticket-detail.php: END require_one message-query.php";
@@ -11,19 +12,20 @@ if(!isset($_SESSION['user'])){
 }
 $listOfMessages = '';
 $id = '';
-
+$subject = '';
+$selectedTicket ='';
 //$userId = 1;//to test message submission when I need to pass php var to js var
 $userId = intval($_SESSION['user']);
 if($_GET['id'] !== null){
     $id = $_GET['id'];
-    echo "id: ".$id;
+    //echo "id: ".$id;
     $selectedTicket = getTicketById($id);
     $ownerId = $selectedTicket['OwnerId'];
     $userFullName = getUserFullNameById($ownerId);
     $subject = $selectedTicket->Subject;
-    echo "ticket-detail.php: START get listOfMessages";
+    //echo "ticket-detail.php: START get listOfMessages";
     $listOfMessages = getMessagesStrByMessagesObj($selectedTicket->Messages);
-    echo "ticket-detail.php: END GET listOfMessages";
+    //echo "ticket-detail.php: END GET listOfMessages";
     /*foreach ($selectedTicket->Messages->children() as $message){
 
         $listOfMessages .= '<li>
@@ -61,7 +63,7 @@ if(isset($_POST['submitMsg'])){
 
 <!doctype html>
 <html lang="en">
-<head>
+<!--<head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -72,10 +74,14 @@ if(isset($_POST['submitMsg'])){
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="js/handler.js"></script>
-</head>
+</head>-->
+<?php
+printHeadElement($subject, 'js/handler.js');
+?>
 <body>
 <?php
-require_once 'header.php';
+/*require_once 'header.php';*/
+printHeaderElement();
 ?>
 <main class="container">
     <div class="mt-2">
@@ -91,19 +97,27 @@ require_once 'header.php';
         ?>
         <!--<h1>Subject of message</h1>-->
     </div>
-    <div class="row d-flex flex column justify-content-end">
+    <div class="row d-flex flex-row justify-content-end">
         <label for="statuses" class="col-sm-1 col-form-label">
             Status:
         </label>
-        <select id="statuses" class="form-select">
+
             <?php
-            echo createListOptionElements($selectedTicket['Status']);
+            if (isset($_SESSION['admin'])){
+                echo '<select id="statuses" class="form-select">';
+                echo createListOptionElements($selectedTicket['Status']);
+                echo '</select>';
+            }
+            else{
+                echo '<text id="status_ticket_normal_user" class="col-sm-1 align-bottom">'.$selectedTicket['Status'].'</text>';
+            }
+
             ?>
             <!--<option value="Resolved">Resolved</option>
             <option value="In progress">In progress</option>
             <option value="Closed">Closed</option>
             <option value="Reopened">Reopened</option>-->
-        </select>
+
     </div>
     <ul id="list_messages">
         <?php
@@ -127,7 +141,8 @@ require_once 'header.php';
 </main>
 
 <?php
-require_once 'footer.php';
+/*require_once 'footer.php';*/
+printFooterElement();
 ?>
 </body>
 <script async defer type="text/javascript">

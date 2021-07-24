@@ -4,6 +4,7 @@ session_start();
 require_once 'user-query.php';
 require_once 'ticket-query.php';
 
+
 if (!isset($_SESSION['user'])){
     header("location: login.php");
 }
@@ -25,7 +26,7 @@ foreach ($tickets as $ticket){
     $userFullName = getUserFullNameById($userId);
 
     $CreatedDate = $ticket->Messages->Message[0]->Date;
-    echo "CreatedDate: ".$CreatedDate;
+//    echo "CreatedDate: ".$CreatedDate;
     $Tickets .= '<div class="card m-2">';
     $Tickets .= '<h3 class="card-header">';
     $Tickets .= 'Subject: '.$ticket->Subject;
@@ -34,7 +35,7 @@ foreach ($tickets as $ticket){
             <p class="card-text flex-fill bd-highlight  align-middle">';
     //$href = 'ticket-detail.php?id='.$ticketId;
     //$Tickets .= '<a href="ticket-detail.php" class="stretched-link">';
-    $Tickets .= '<a href="ticket-detail.php?id='.$ticketId.'" class="stretched-link">';
+    $Tickets .= '<a id="ticketOwner" href="ticket-detail.php?id='.$ticketId.'" class="stretched-link">';
     $Tickets .= 'Created by: '. $userFullName;
     $Tickets .= '</a>';
     $Tickets .= '</p>';
@@ -58,7 +59,7 @@ foreach ($tickets as $ticket){
 ?>
 <!doctype html>
 <html lang="en">
-<head>
+<!--<head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -66,14 +67,20 @@ foreach ($tickets as $ticket){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <title>Document</title>
-</head>
+</head>-->
+<?php
+require_once 'html-elements.php';
+printHeadElement('ticket listing page');
+?>
 <body>
 <?php
-require_once 'header.php';
+/*require_once 'header.php';*/
+printHeaderElement();
 ?>
 <main class="container">
-<h1>List of tickets</h1>
+
 <div class="d-flex flex-column">
+    <h1 class="text-center">List of tickets</h1>
     <!--List of tickets-->
     <?php
     echo $Tickets
@@ -117,7 +124,8 @@ require_once 'header.php';
 </div>
 </main>
 <?php
-require_once 'footer.php';
+/*require_once 'footer.php';*/
+printFooterElement();
 ?>
 </body>
 </html>

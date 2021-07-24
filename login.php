@@ -1,5 +1,10 @@
 <?php
+require_once 'html-elements.php';
 session_save_path('D:\ProgramStore\xampp\php\tmp');
+if (isset($_SESSION['user'])){
+    session_destroy();
+}
+
 session_start();
 require_once "user-query.php";
 
@@ -46,7 +51,7 @@ if (isset($_POST['login'])){
 ?>
 <!doctype html>
 <html lang="en">
-<head>
+<!--<head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -55,10 +60,16 @@ if (isset($_POST['login'])){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link href="css/style.css" type="text/css" rel="stylesheet">
-</head>
-<body>
+</head>-->
 <?php
-require_once 'header.php';
+printHeadElement('Login page');
+?>
+<body>
+<!--<header id="header" class="justify-content-end">
+    <h2>Support Ticket System</h2>
+</header>-->
+<?php
+printHeaderElement(false);
 ?>
 <main>
 <div class="container">
@@ -81,16 +92,18 @@ require_once 'header.php';
                 <input name="password" id="password" type="password" class="form-control" placeholder="your password">
                 <br><span><?= !isset($passwordErrorMsg)? '': $passwordErrorMsg; ?></span>
             </div>
-            <div class="text-end">
-                <input id="login-btn" type="submit" class="btn me-2 mb-2" name="login" value="login">
+            <div class="text-end d-flex flex-row justify-content-center">
+                <a class="align-self-center justify-content-start col-sm-2" href="signup.php">Sign up</a>
+                <input id="login-btn" type="submit" class="btn me-2 align-self-center col-sm-2 justify-content-end" name="login" value="login">
             </div>
         </form>
-        <a href="signup.php">Signup up</a>
+
     </div>
 </div>
 </main>
 <?php
-require_once 'footer.php';
+/*require_once 'footer.php';*/
+printFooterElement();
 ?>
 </body>
 </html>
