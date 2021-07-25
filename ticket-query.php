@@ -14,6 +14,8 @@ function createListOptionElements($st): string
         }
 
         $result .= '<option id="ticketStatus_'.str_replace(" ","",$status).'" value="'.$status.'" '.$selected.'>'.$status.'</option>';
+        //Reference: https://stackoverflow.com/questions/2000656/using-href-links-inside-option-tag
+        //$result .= '<option id="ticketStatus_'.str_replace(" ","",$status).'" value="ticket-listing.php" '.$selected.'>'.$status.'</option>';
     }
     return $result;
 }
@@ -43,6 +45,15 @@ function getMessagesStrByMessagesObj($messages,$echo = false): string
 function getTicketsByOwnerId($ownerId){
     global $xml;
     return $xml->xpath("//SupportTicket[@OwnerId='$ownerId']");
+}
+
+function updateTicketStatusByTicketId($ticketId, $ticketStatus): bool|string
+{
+    global $xml;
+    $selectedTicket = $xml->xpath("//SupportTicket[@Id='$ticketId']")[0];
+    $attributeName = "Status";
+    $selectedTicket->attributes()->Status = $ticketStatus;
+    return $xml->saveXML("xml/SupportTickets.xml");
 }
 /*<option value="Resolved" selected>Resolved</option>
                 <option value="In progress">In progress</option>

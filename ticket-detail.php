@@ -98,13 +98,14 @@ printHeaderElement();
         <!--<h1>Subject of message</h1>-->
     </div>
     <div class="row d-flex flex-row justify-content-end">
-        <label for="statuses" class="col-sm-1 col-form-label">
-            Status:
-        </label>
+
 
             <?php
             if (isset($_SESSION['admin'])){
-                echo '<select id="statuses" class="form-select">';
+                echo '<label for="'.$id.'" class="col-sm-1 col-form-label">
+                    Status:
+                      </label>';
+                echo '<select id="'.$id.'" class="form-select statuses"  onchange="changeStatus(this)">';
                 echo createListOptionElements($selectedTicket['Status']);
                 echo '</select>';
             }

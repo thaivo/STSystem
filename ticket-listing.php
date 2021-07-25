@@ -42,9 +42,9 @@ foreach ($tickets as $ticket){
     $Tickets .= '<p class="card-text flex-fill bd-highlight align-middle">';
     $Tickets .= 'Date time: '.$CreatedDate;
     $Tickets .= '</p>';
-    $Tickets .= '<label for="status" class="flex-fill bd-highlight align-middle">Status:</label>';
+    $Tickets .= '<label for="'.$ticketId.'" class="flex-fill bd-highlight align-middle">Status:</label>';
     if (isset($_SESSION['admin'])){
-        $Tickets .= '<select id="status" class="form-select flex-fill bd-highlight align-middle">';
+        $Tickets .= '<select id="'.$ticketId.'" class="form-select flex-fill bd-highlight align-middle statuses" onchange="changeStatus(this)">';
         $Tickets .= createListOptionElements($status);
         $Tickets .= '</select>';
     }
@@ -70,7 +70,7 @@ foreach ($tickets as $ticket){
 </head>-->
 <?php
 require_once 'html-elements.php';
-printHeadElement('ticket listing page');
+printHeadElement('ticket listing page','js/handler.js');
 ?>
 <body>
 <?php

@@ -13,7 +13,26 @@ function loadAJAXMessage(ticketId) {
 window.onload = function (){
     let url = location.search;
     let filter = url.split('?');
-    let paramStr = filter[1];
-    let ticketId = ""+paramStr.split('=')[1];
-    setInterval(loadAJAXMessage,5000, ticketId);
+    if (filter.length > 1){
+        let paramStr = filter[1];
+        let ticketId = ""+paramStr.split('=')[1];
+        setInterval(loadAJAXMessage,5000, ticketId);
+    }
+}
+
+function changeStatus(selectedElement) {
+    //TODO: save selectedElement.value based on selectedElement.id
+    //TODO: selectedElement.id is ticketId, selectedElement.value is the updated status.
+    //TODO: create php to send ajax to save
+    // https://stackoverflow.com/questions/14766103/sending-html-form-multiple-select-box-via-post-request-with-ajax
+    //DONE
+    xmlHttpRequest.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200){
+            console.log("Result of status update: "+this.responseText)
+        }
+    }
+    xmlHttpRequest.open("POST", "status-query.php");
+    xmlHttpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    let data = JSON.stringify({"ticketId":selectedElement.id, "ticketStatus":selectedElement.value});
+    xmlHttpRequest.send(data);
 }

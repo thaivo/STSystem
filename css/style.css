@@ -39,7 +39,7 @@ select{
     width: auto !important;
 }
 
-#status{
+.statuses{
     z-index: 1;
     position: relative;
 }
