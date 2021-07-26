@@ -33,6 +33,6 @@ function changeStatus(selectedElement) {
     }
     xmlHttpRequest.open("POST", "status-query.php");
     xmlHttpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-    let data = JSON.stringify({"ticketId":selectedElement.id, "ticketStatus":selectedElement.value});
+    let data = JSON.stringify({"ticketId":selectedElement.id, "newTicketStatus":selectedElement.value});
     xmlHttpRequest.send(data);
 }

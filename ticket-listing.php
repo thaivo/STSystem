@@ -45,7 +45,7 @@ foreach ($tickets as $ticket){
     $Tickets .= '<label for="'.$ticketId.'" class="flex-fill bd-highlight align-middle">Status:</label>';
     if (isset($_SESSION['admin'])){
         $Tickets .= '<select id="'.$ticketId.'" class="form-select flex-fill bd-highlight align-middle statuses" onchange="changeStatus(this)">';
-        $Tickets .= createListOptionElements($status);
+        $Tickets .= createListOptionElementsForTicketStatus($status);
         $Tickets .= '</select>';
     }
     else{
@@ -59,6 +59,34 @@ foreach ($tickets as $ticket){
 ?>
 <!doctype html>
 <html lang="en">
+<?php
+require_once 'html-elements.php';
+printHeadElement('ticket listing page','js/handler.js');
+?>
+<body>
+<?php
+printHeaderElement();
+?>
+<main class="container">
+
+<div class="d-flex flex-column">
+    <h1 class="text-center">List of tickets</h1>
+    <a href="ticket-creation.php">New ticket</a>
+    <!--List of tickets-->
+    <?php
+    echo $Tickets
+    ?>
+</div>
+</main>
+<?php
+printFooterElement();
+?>
+</body>
+</html>
+
+
+
+
 <!--<head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -68,24 +96,8 @@ foreach ($tickets as $ticket){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>-->
-<?php
-require_once 'html-elements.php';
-printHeadElement('ticket listing page','js/handler.js');
-?>
-<body>
-<?php
-/*require_once 'header.php';*/
-printHeaderElement();
-?>
-<main class="container">
 
-<div class="d-flex flex-column">
-    <h1 class="text-center">List of tickets</h1>
-    <!--List of tickets-->
-    <?php
-    echo $Tickets
-    ?>
-    <!--<div class="card m-2">
+<!--<div class="card m-2">
         <h3 class="card-header">
             Subject: abc
         </h3>
@@ -121,11 +133,3 @@ printHeaderElement();
             </select>
         </div>
     </div>-->
-</div>
-</main>
-<?php
-/*require_once 'footer.php';*/
-printFooterElement();
-?>
-</body>
-</html>

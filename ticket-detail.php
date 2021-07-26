@@ -106,7 +106,7 @@ printHeaderElement();
                     Status:
                       </label>';
                 echo '<select id="'.$id.'" class="form-select statuses"  onchange="changeStatus(this)">';
-                echo createListOptionElements($selectedTicket['Status']);
+                echo createListOptionElementsForTicketStatus($selectedTicket['Status']);
                 echo '</select>';
             }
             else{

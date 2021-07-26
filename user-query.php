@@ -79,3 +79,26 @@ function createNewUser($username, $password, $firstName, $lastName, $email, $mid
     $loginInfo->addChild('Password',password_hash($password,PASSWORD_DEFAULT));
     $xml->saveXML("xml/Users.xml");
 }
+
+function getAllUsers($excludeAdmin = true): array|bool
+{
+    $xml = simplexml_load_file("xml/Users.xml");
+    $xpath = '';
+    if ($excludeAdmin === true){
+        $xpath .= "//User[not(@Amin)]";
+    }
+    return $xml->xpath($xpath);
+
+
+}
+
+function createListOptionElementsForUsers($userSimpleXmlObjects): string
+{
+    //Reference:https://stackoverflow.com/questions/40363821/get-an-attribute-value-using-simplexml-for-php
+    //https://electrictoolbox.com/php-simplexml-element-attributes/
+    $result = '';
+    foreach ($userSimpleXmlObjects as $user){
+        $result .= '<option value="'.$user->attributes()->UserId.'">'.$user->Name->First.' '.$user->Name->Last.'( '.$user->LoginInfo->UserName.')</option>';
+    }
+    return $result;
+}
