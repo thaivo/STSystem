@@ -27,7 +27,6 @@ function getTicketById($id){
 
 function getMessagesStrByMessagesObj($messages,$echo = false): string
 {
-
     $listOfMessages = '';
     foreach ($messages->children() as $message) {
         $listOfMessages .= '<li><div class="card m-2"><div class="card-header d-flex flex-row"><div class="flex-fill">';
@@ -67,13 +66,13 @@ function createTicket($ticketSubject, $ticketContent, $ownerId): bool|string
     //$tickets = $xml->SupportTickets;
     $xml = simplexml_load_file("xml/SupportTickets.xml");
     $newTicket = $xml->addChild('SupportTicket');
-    $newTicket->addAttribute('Id','"'.$newTicketId.'"');
-    $newTicket->addAttribute('Status','"Open"');
-    $newTicket->addAttribute('OwnerId','"'.$ownerId.'"');
+    $newTicket->addAttribute('Id',$newTicketId);
+    $newTicket->addAttribute('Status','Open');
+    $newTicket->addAttribute('OwnerId',$ownerId);
     $newTicket->addChild('Subject',$ticketSubject);
     $messages = $newTicket->addChild('Messages');
     $message = $messages->addChild('Message');
-    $message->addAttribute('UserId','"'.$ownerId.'"');
+    $message->addAttribute('UserId',$ownerId);
     $message->addChild('Date',getCurrentDateStr());
     $message->addChild('Content',$ticketContent);
     return $xml->saveXML("xml/SupportTickets.xml");

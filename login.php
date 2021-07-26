@@ -1,12 +1,12 @@
 <?php
-require_once 'html-elements.php';
 session_save_path('D:\ProgramStore\xampp\php\tmp');
-if (isset($_SESSION['user'])){
-    session_destroy();
-}
-
 session_start();
+//Bug: any user that logs in can perform as an admin
+//Solution: call session_unset to free all session variables
+session_unset();
+require_once 'html-elements.php';
 require_once "user-query.php";
+
 
 if (isset($_POST['login'])){
     $passwordErrorMsg = '';
@@ -15,6 +15,7 @@ if (isset($_POST['login'])){
         if (doesUserNameExist($_POST['username'])){
             if (isset($_POST['password'])){
                 if(verifyPasswordByUserName($_POST['username'],$_POST['password'])){
+
                     if (isAdmin($_POST['username'])){
                         $_SESSION['admin'] = '1';
                     }

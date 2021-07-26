@@ -13,12 +13,11 @@ if (isset($_POST['submitNewTicket'])){
         $ownerId = $_POST['owner'];//Admin help users to create their new ticket and then assign them as an owner
     }
     //TODO: start to create a ticket with $ownerId
-    var_dump($_POST);
-    $debugFile = fopen("debug.txt","w+");
-    fwrite($debugFile,"THAI");
+    if (createTicket($_POST['subjectField'],$_POST['contentField'], $ownerId)){
+        header("Location: ticket-listing.php");
+    }
 
-    echo "result of creating new ticket: ".createTicket($_POST['subjectField'],$_POST['contentField'], $ownerId);
-    fclose($debugFile);
+
 }
 ?>
 <!doctype html>
