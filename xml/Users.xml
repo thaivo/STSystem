@@ -56,4 +56,26 @@
             <Password>$2y$10$Oqf.UY2CLRhGRNFWe2S1Q.PUXSlCrAkthMMjB2epb5MXMaDuQGRG2</Password>
         </LoginInfo>
     </User>
-<User UserId="5" Admin="1"><Name><First>Gary</First><Last>Neville</Last></Name><Email>gary.neville@gmail.com</Email><LoginInfo><UserName>gary1</UserName><Password>$2y$10$XkoJ8S2Ot/o4/ZpnEW3mUubJrj1oND4RB3HHWO0suVRBmHCEYpElG</Password></LoginInfo></User></Users>
+    <User UserId="5" Admin="1">
+        <Name>
+            <First>Gary</First>
+            <Last>Neville</Last>
+        </Name>
+        <Email>gary.neville@gmail.com</Email>
+        <LoginInfo>
+            <UserName>gary1</UserName>
+            <Password>$2y$10$XkoJ8S2Ot/o4/ZpnEW3mUubJrj1oND4RB3HHWO0suVRBmHCEYpElG</Password>
+        </LoginInfo>
+    </User>
+    <User UserId="6">
+        <Name>
+            <First>Nick</First>
+            <Last>Carter</Last>
+        </Name>
+        <Email>nick123@yahoo.com</Email>
+        <LoginInfo>
+            <UserName>nick12</UserName>
+            <Password>$2y$10$t8jkYW9yUINtTuF2qhw04OHS664gOfcNQxec5EQyk6Cpy7AWrR7Z.</Password>
+        </LoginInfo>
+    </User>
+</Users>

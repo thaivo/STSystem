@@ -1,105 +1,344 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SupportTickets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="SupportTickets.xsd">
-	<SupportTicket Id="1" Status="Resolved" OwnerId="2">
-		<Subject>Having a problem with payment</Subject>
-		<Messages>
-			<!--
-			 the first Message is the initial Content of the support ticket.
-			 it is able to get Date of issue from this first Message.
-			-->
-			<Message UserId="2">
-				<Date>2021-05-26T10:13:26</Date>
-				<Content>I cannot proceed with the payment of my order. Can you check that for me? I really appreciate that. My order Id is ORD0019568</Content>
-			</Message>
-			<Message UserId="1">
-				<Date>2021-05-26T10:30:20</Date>
-				<Content>Please let me check and I will let you know your problem today. Thanks!</Content>
-			</Message>
-			<Message UserId="1">
-				<Date>2021-05-27T10:30:20</Date>
-				<Content>Hi! You need to put the correct information for your address in your credit card. So that would help your payment to be successful.</Content>
-			</Message>
-			<Message UserId="2">
-				<Date>2021-05-27T11:13:26</Date>
-				<Content>Thank you so much! I forgot I put my old address. my payment succeeded.</Content>
-			</Message>
-		<Message UserId="1"><Date>2021-07-15EDT10:55:46</Date><Content>dafdcdsc</Content></Message><Message UserId="1"><Date>2021-07-15EDT11:03:36</Date><Content>dafdcdsc</Content></Message><Message UserId="1"><Date>2021-07-15EDT11:04:52</Date><Content>dafdcdsc</Content></Message><Message UserId="1"><Date>2021-07-15EDT11:26:26</Date><Content>dafdcdsc</Content></Message><Message UserId="1"><Date>2021-07-15EDT11:31:27</Date><Content>dafdcdsc</Content></Message><Message UserId="1"><Date>2021-07-15EDT11:31:48</Date><Content>dafdcdsc</Content></Message><Message UserId="1"><Date>2021-07-15EDT11:32:01</Date><Content>Hello1</Content></Message><Message UserId="1"><Date>2021-07-15EDT10:44:17</Date><Content>hello2</Content></Message><Message UserId="1"><Date>2021-07-15EDT10:45:44</Date><Content>dafdfdsf</Content></Message><Message UserId="1"><Date>2021-07-15EDT10:46:18</Date><Content>dafdfdsf</Content></Message><Message UserId="1"><Date>2021-07-15EDT10:48:07</Date><Content>weede</Content></Message><Message UserId="1"><Date>2021-07-16EDT08:48:03</Date><Content>12343443435</Content></Message><Message UserId="1"><Date>2021-07-16EDT09:56:23</Date><Content>a beautiful day</Content></Message><Message UserId="1"><Date>2021-07-16EDT09:59:41</Date><Content>a beautiful day</Content></Message></Messages>
-	</SupportTicket>
-	<SupportTicket Id="2" Status="Resolved" OwnerId="2">
-		<Subject>Having a problem when signing up</Subject>
-		<Messages>
-			<Message UserId="2">
-				<Date>2021-05-27T11:00:00</Date>
-				<Content>I have signed up before. It is successful but I have not received any verification email. My email is abc@gmail.com. Can you check that for me, please? Thanks</Content>
-			</Message>
-			<Message UserId="1">
-				<Date>2021-05-27T11:15:00</Date>
-				<Content>Maybe your email is not correct because I do not see any email like yours in the system.</Content>
-			</Message>
-			<Message UserId="2">
-				<Date>2021-05-27T19:20:00</Date>
-				<Content>I signed up again. It was successful and I received the verification email. That is weird. anyway, thank you for your support</Content>
-			</Message>
-		<Message UserId="1"><Date>2021-07-15EDT10:48:18</Date><Content>eded</Content></Message><Message UserId="1"><Date>2021-07-15EDT10:48:21</Date><Content>ewded</Content></Message><Message UserId="1"><Date>2021-07-15EDT10:48:27</Date><Content>cdcdc</Content></Message><Message UserId="1"><Date>2021-07-16EDT11:05:12</Date><Content>one</Content></Message><Message UserId="1"><Date>2021-07-16EDT11:05:51</Date><Content>one</Content></Message><Message UserId="1"><Date>2021-07-16EDT11:06:38</Date><Content>one</Content></Message><Message UserId="1"><Date>2021-07-16EDT11:06:57</Date><Content>two</Content></Message><Message UserId="1"><Date>2021-07-16EDT11:13:35</Date><Content>two</Content></Message><Message UserId="1"><Date>2021-07-16EDT11:17:44</Date><Content>two</Content></Message></Messages>
-	</SupportTicket>
-	<SupportTicket Id="3" Status="In progress" OwnerId="3">
-		<Subject>Cannot change some information in my profile</Subject>
-		<Messages>
-			<Message UserId="3">
-				<Date>2021-05-28T10:56:45</Date>
-				<Content>I try changing my avatar and my email address in my profile but it seems to be not successful. Can you check that for me, please? Thanks</Content>
-			</Message>
-			<Message UserId="1">
-				<Date>2021-05-28T11:56:45</Date>
-				<Content>Hi! there is a problem with the user profile in the system currently. I will tell the developer team to fix that error. And in the end of this week, maybe it will be fixed. Sorry about that. I will let this ticket marked as In progress so we can keep track of it easily. </Content>
-			</Message>
-		<Message UserId="1"><Date>2021-07-16EDT01:32:35</Date><Content>123</Content></Message><Message UserId="1"><Date>2021-07-16EDT01:36:58</Date><Content>234</Content></Message><Message UserId="1"><Date>2021-07-16EDT01:37:03</Date><Content>456</Content></Message><Message UserId="1"><Date>2021-07-16EDT01:58:16</Date><Content>789</Content></Message><Message UserId="1"><Date>2021-07-16EDT02:02:10</Date><Content>111</Content></Message><Message UserId="1"><Date>2021-07-16EDT02:05:14</Date><Content>789</Content></Message><Message UserId="1"><Date>2021-07-16EDT02:05:19</Date><Content>222</Content></Message><Message UserId="1"><Date>2021-07-16EDT04:38:48</Date><Content>3333</Content></Message></Messages>
-	</SupportTicket>
-	<SupportTicket Id="4" Status="In progress" OwnerId="3">
-		<Subject>How can I return only one item of my order because it is faulty?</Subject>
-		<Messages>
-			<Message UserId="3">
-				<Date>2021-05-29T09:30:00</Date>
-				<Content>Hi admin, I would like to return a t-shirt of my order because it is faulty. Furthermore, I am a valued member so can I have free-of-charge return.</Content>
-			</Message>
-			<Message UserId="1">
-				<Date>2021-05-29T10:30:00</Date>
-				<Content>Hi! It is so difficult for me to decide about your free return. So let me ask my manager and let you know tomorrow or 2 days later.</Content>
-			</Message>
-			<Message UserId="3">
-				<Date>2021-05-29T10:35:00</Date>
-				<Content>Hi! I am ok with that. Thank you for your support.</Content>
-			</Message>
-		</Messages>
-	</SupportTicket>
-	<SupportTicket Id="5" Status="Resolved" OwnerId="5">
-		<Subject>Having a problem with payment 123</Subject>
-		<Messages>
-			<!--
-			 the first Message is the initial Content of the support ticket.
-			 it is able to get Date of issue from this first Message.
-			-->
-			<Message UserId="5">
-				<Date>2021-05-26T10:13:26</Date>
-				<Content>I cannot proceed with the payment of my order. Can you check that for me? I really appreciate that. My order Id is ORD0019568</Content>
-			</Message>
-			<Message UserId="1">
-				<Date>2021-05-26T10:30:20</Date>
-				<Content>Please let me check and I will let you know your problem today. Thanks!</Content>
-			</Message>
-			<Message UserId="1">
-				<Date>2021-05-27T10:30:20</Date>
-				<Content>Hi! You need to put the correct information for your address in your credit card. So that would help your payment to be successful.</Content>
-			</Message>
-			<Message UserId="5">
-				<Date>2021-05-27T11:13:26</Date>
-				<Content>Thank you so much! I forgot I put my old address. my payment succeeded.</Content>
-			</Message>
-			<Message UserId="1"><Date>2021-07-15EDT10:55:46</Date><Content>dafdcdsc</Content></Message><Message UserId="1"><Date>2021-07-15EDT11:03:36</Date><Content>dafdcdsc</Content></Message><Message UserId="1"><Date>2021-07-15EDT11:04:52</Date><Content>dafdcdsc</Content></Message><Message UserId="1"><Date>2021-07-15EDT11:26:26</Date><Content>dafdcdsc</Content></Message><Message UserId="1"><Date>2021-07-15EDT11:31:27</Date><Content>dafdcdsc</Content></Message><Message UserId="1"><Date>2021-07-15EDT11:31:48</Date><Content>dafdcdsc</Content></Message><Message UserId="1"><Date>2021-07-15EDT11:32:01</Date><Content>Hello1</Content></Message><Message UserId="1"><Date>2021-07-15EDT10:44:17</Date><Content>hello2</Content></Message><Message UserId="1"><Date>2021-07-15EDT10:45:44</Date><Content>dafdfdsf</Content></Message><Message UserId="1"><Date>2021-07-15EDT10:46:18</Date><Content>dafdfdsf</Content></Message><Message UserId="1"><Date>2021-07-15EDT10:48:07</Date><Content>weede</Content></Message><Message UserId="1"><Date>2021-07-16EDT08:48:03</Date><Content>12343443435</Content></Message><Message UserId="1"><Date>2021-07-16EDT09:56:23</Date><Content>a beautiful day</Content></Message><Message UserId="1"><Date>2021-07-16EDT09:59:41</Date><Content>a beautiful day</Content></Message><Message UserId="5"><Date>2021-07-23T13:44:01</Date><Content>ddsfafdfa</Content></Message><Message UserId="5"><Date>2021-07-23T22:45:06</Date><Content>an interesting football match</Content></Message></Messages>
-	</SupportTicket>
+<SupportTickets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:noNamespaceSchemaLocation="SupportTickets.xsd">
+    <SupportTicket Id="1" Status="Closed" OwnerId="2">
+        <Subject>Having a problem with payment</Subject>
+        <Messages>
+            <!--
+             the first Message is the initial Content of the support ticket.
+             it is able to get Date of issue from this first Message.
+            -->
+            <Message UserId="2">
+                <Date>2021-05-26T10:13:26</Date>
+                <Content>I cannot proceed with the payment of my order. Can you check that for me? I really appreciate
+                    that. My order Id is ORD0019568
+                </Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-05-26T10:30:20</Date>
+                <Content>Please let me check and I will let you know your problem today. Thanks!</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-05-27T10:30:20</Date>
+                <Content>Hi! You need to put the correct information for your address in your credit card. So that would
+                    help your payment to be successful.
+                </Content>
+            </Message>
+            <Message UserId="2">
+                <Date>2021-05-27T11:13:26</Date>
+                <Content>Thank you so much! I forgot I put my old address. my payment succeeded.</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T10:55:46</Date>
+                <Content>dafdcdsc</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T11:03:36</Date>
+                <Content>dafdcdsc</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T11:04:52</Date>
+                <Content>dafdcdsc</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T11:26:26</Date>
+                <Content>dafdcdsc</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T11:31:27</Date>
+                <Content>dafdcdsc</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T11:31:48</Date>
+                <Content>dafdcdsc</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T11:32:01</Date>
+                <Content>Hello1</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T10:44:17</Date>
+                <Content>hello2</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T10:45:44</Date>
+                <Content>dafdfdsf</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T10:46:18</Date>
+                <Content>dafdfdsf</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T10:48:07</Date>
+                <Content>weede</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-16T08:48:03</Date>
+                <Content>12343443435</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-16T09:56:23</Date>
+                <Content>a beautiful day</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-16T09:59:41</Date>
+                <Content>a beautiful day</Content>
+            </Message>
+        </Messages>
+    </SupportTicket>
+    <SupportTicket Id="2" Status="Resolved" OwnerId="2">
+        <Subject>Having a problem when signing up</Subject>
+        <Messages>
+            <Message UserId="2">
+                <Date>2021-05-27T11:00:00</Date>
+                <Content>I have signed up before. It is successful but I have not received any verification email. My
+                    email is abc@gmail.com. Can you check that for me, please? Thanks
+                </Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-05-27T11:15:00</Date>
+                <Content>Maybe your email is not correct because I do not see any email like yours in the system.
+                </Content>
+            </Message>
+            <Message UserId="2">
+                <Date>2021-05-27T19:20:00</Date>
+                <Content>I signed up again. It was successful and I received the verification email. That is weird.
+                    anyway, thank you for your support
+                </Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T10:48:18</Date>
+                <Content>eded</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T10:48:21</Date>
+                <Content>ewded</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T10:48:27</Date>
+                <Content>cdcdc</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-16T11:05:12</Date>
+                <Content>one</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-16T11:05:51</Date>
+                <Content>one</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-16T11:06:38</Date>
+                <Content>one</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-16T11:06:57</Date>
+                <Content>two</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-16T11:13:35</Date>
+                <Content>two</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-16T11:17:44</Date>
+                <Content>two</Content>
+            </Message>
+        </Messages>
+    </SupportTicket>
+    <SupportTicket Id="3" Status="Resolved" OwnerId="3">
+        <Subject>Cannot change some information in my profile</Subject>
+        <Messages>
+            <Message UserId="3">
+                <Date>2021-05-28T10:56:45</Date>
+                <Content>I try changing my avatar and my email address in my profile but it seems to be not successful.
+                    Can you check that for me, please? Thanks
+                </Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-05-28T11:56:45</Date>
+                <Content>Hi! there is a problem with the user profile in the system currently. I will tell the developer
+                    team to fix that error. And in the end of this week, maybe it will be fixed. Sorry about that. I
+                    will let this ticket marked as In progress so we can keep track of it easily.
+                </Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-16T01:32:35</Date>
+                <Content>123</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-16T01:36:58</Date>
+                <Content>234</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-16T01:37:03</Date>
+                <Content>456</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-16T01:58:16</Date>
+                <Content>789</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-16T02:02:10</Date>
+                <Content>111</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-16T02:05:14</Date>
+                <Content>789</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-16T02:05:19</Date>
+                <Content>222</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-16T04:38:48</Date>
+                <Content>3333</Content>
+            </Message>
+        </Messages>
+    </SupportTicket>
+    <SupportTicket Id="4" Status="In progress" OwnerId="3">
+        <Subject>How can I return only one item of my order because it is faulty?</Subject>
+        <Messages>
+            <Message UserId="3">
+                <Date>2021-05-29T09:30:00</Date>
+                <Content>Hi admin, I would like to return a t-shirt of my order because it is faulty. Furthermore, I am
+                    a valued member so can I have free-of-charge return.
+                </Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-05-29T10:30:00</Date>
+                <Content>Hi! It is so difficult for me to decide about your free return. So let me ask my manager and
+                    let you know tomorrow or 2 days later.
+                </Content>
+            </Message>
+            <Message UserId="3">
+                <Date>2021-05-29T10:35:00</Date>
+                <Content>Hi! I am ok with that. Thank you for your support.</Content>
+            </Message>
+        </Messages>
+    </SupportTicket>
+    <SupportTicket Id="5" Status="Resolved" OwnerId="5">
+        <Subject>Having a problem with payment 123</Subject>
+        <Messages>
+            <!--
+             the first Message is the initial Content of the support ticket.
+             it is able to get Date of issue from this first Message.
+            -->
+            <Message UserId="5">
+                <Date>2021-05-26T10:13:26</Date>
+                <Content>I cannot proceed with the payment of my order. Can you check that for me? I really appreciate
+                    that. My order Id is ORD0019568
+                </Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-05-26T10:30:20</Date>
+                <Content>Please let me check and I will let you know your problem today. Thanks!</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-05-27T10:30:20</Date>
+                <Content>Hi! You need to put the correct information for your address in your credit card. So that would
+                    help your payment to be successful.
+                </Content>
+            </Message>
+            <Message UserId="5">
+                <Date>2021-05-27T11:13:26</Date>
+                <Content>Thank you so much! I forgot I put my old address. my payment succeeded.</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T10:55:46</Date>
+                <Content>dafdcdsc</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T11:03:36</Date>
+                <Content>dafdcdsc</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T11:04:52</Date>
+                <Content>dafdcdsc</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T11:26:26</Date>
+                <Content>dafdcdsc</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T11:31:27</Date>
+                <Content>dafdcdsc</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T11:31:48</Date>
+                <Content>dafdcdsc</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T11:32:01</Date>
+                <Content>Hello1</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T10:44:17</Date>
+                <Content>hello2</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T10:45:44</Date>
+                <Content>dafdfdsf</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T10:46:18</Date>
+                <Content>dafdfdsf</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-15T10:48:07</Date>
+                <Content>weede</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-16T08:48:03</Date>
+                <Content>12343443435</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-16T09:56:23</Date>
+                <Content>a beautiful day</Content>
+            </Message>
+            <Message UserId="1">
+                <Date>2021-07-16T09:59:41</Date>
+                <Content>a beautiful day</Content>
+            </Message>
+            <Message UserId="5">
+                <Date>2021-07-23T13:44:01</Date>
+                <Content>ddsfafdfa</Content>
+            </Message>
+            <Message UserId="5">
+                <Date>2021-07-23T22:45:06</Date>
+                <Content>an interesting football match</Content>
+            </Message>
+        </Messages>
+    </SupportTicket>
+
+    <SupportTicket Id="5" Status="Open" OwnerId="3">
+        <Subject>Problem with my order</Subject>
+        <Messages>
+            <Message UserId="3">
+                <Date>2021-07-26T08:28:27</Date>
+                <Content>There is one missing item of my order.</Content>
+            </Message>
+        </Messages>
+    </SupportTicket>
+    <SupportTicket Id="6" Status="Open" OwnerId="4">
+        <Subject>not receiving verification code</Subject>
+        <Messages>
+            <Message UserId="4">
+                <Date>2021-07-26T08:39:59</Date>
+                <Content>Although signing up successfully yesterday, verification code did not send me</Content>
+            </Message>
+        </Messages>
+    </SupportTicket>
+    <SupportTicket Id="6" Status="Open" OwnerId="6">
+        <Subject>Faulty Item</Subject>
+        <Messages>
+            <Message UserId="6">
+                <Date>2021-07-26T11:21:41</Date>
+                <Content>There are 2 faulty items in my order</Content>
+            </Message>
+        </Messages>
+    </SupportTicket>
 </SupportTickets>
-<!--
-https://stackoverflow.com/questions/1096797/should-i-use-elements-or-attributes-in-xml
-https://stackoverflow.com/questions/33746/xml-attribute-vs-xml-element
-https://isupport.krengeltech.com/rxs/xml_attributes_vs_elements/
--->
+        <!--
+                https://stackoverflow.com/questions/1096797/should-i-use-elements-or-attributes-in-xml
+                https://stackoverflow.com/questions/33746/xml-attribute-vs-xml-element
+                https://isupport.krengeltech.com/rxs/xml_attributes_vs_elements/
+                -->
