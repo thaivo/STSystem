@@ -1,0 +1,15 @@
+{
+    "name": "thai/stsystem",
+    "autoload": {
+        "psr-4": {
+            "Thai\\Stsystem\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "thaivo",
+            "email": "thai2903@gmail.com"
+        }
+    ],
+    "require": {}
+}
