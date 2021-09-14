@@ -50,16 +50,9 @@ function getUserIdByUserName($username){
 
 function generateNewUserId(){
     $xml = simplexml_load_file("xml/Users.xml");
-    //$result = $xml->xpath("//User[last()]/@UserId");//ISSUE: cannot load last user in xml file because result is null
-    $result = $xml->xpath("//User[last()-1]/@UserId")[0];//NOTE: last User is at (last()-1) index
+    $result = $xml->xpath("//User[last()]/@UserId")[0];//NOTE: last User is at (last()) index
     //var_dump($result);
     $currentUserId = $result[0];
-    //var_dump($currentUserId);
-    //$print = $xml->xpath("//User[last()-1]")[0];//runnable
-    //$UserId = $print->attributes()['UserId'];
-
-    //NOTE: In here $UserId's type is object but $UserId is value of an integer when printing
-    //echo "type of UserId: ".gettype($currentUserId).'and value of UserId is '.$currentUserId;
     return intval($currentUserId)+1;
 }
 

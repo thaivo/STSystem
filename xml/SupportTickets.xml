@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SupportTickets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xsi:noNamespaceSchemaLocation="SupportTickets.xsd">
+<SupportTickets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="SupportTickets.xsd">
     <SupportTicket Id="1" Status="Closed" OwnerId="2">
         <Subject>Having a problem with payment</Subject>
         <Messages>
@@ -309,7 +308,7 @@
         </Messages>
     </SupportTicket>
 
-    <SupportTicket Id="5" Status="Open" OwnerId="3">
+    <SupportTicket Id="6" Status="Open" OwnerId="3">
         <Subject>Problem with my order</Subject>
         <Messages>
             <Message UserId="3">
@@ -318,7 +317,7 @@
             </Message>
         </Messages>
     </SupportTicket>
-    <SupportTicket Id="6" Status="Open" OwnerId="4">
+    <SupportTicket Id="7" Status="Open" OwnerId="4">
         <Subject>not receiving verification code</Subject>
         <Messages>
             <Message UserId="4">
@@ -327,7 +326,7 @@
             </Message>
         </Messages>
     </SupportTicket>
-    <SupportTicket Id="6" Status="Open" OwnerId="6">
+    <SupportTicket Id="8" Status="Open" OwnerId="6">
         <Subject>Faulty Item</Subject>
         <Messages>
             <Message UserId="6">
@@ -336,8 +335,8 @@
             </Message>
         </Messages>
     </SupportTicket>
-</SupportTickets>
-        <!--
+<SupportTicket Id="9" Status="Open" OwnerId="7"><Subject>missing item in my Order O345STC45</Subject><Messages><Message UserId="7"><Date>2021-09-13T22:09:56</Date><Content>there is an missing item in My Order O345STC45</Content></Message></Messages></SupportTicket><SupportTicket Id="10" Status="Open" OwnerId="8"><Subject>missing item in my Order O345STC45</Subject><Messages><Message UserId="8"><Date>2021-09-13T22:14:18</Date><Content>There is one missing item of my order.</Content></Message></Messages></SupportTicket></SupportTickets>
+<!--
                 https://stackoverflow.com/questions/1096797/should-i-use-elements-or-attributes-in-xml
                 https://stackoverflow.com/questions/33746/xml-attribute-vs-xml-element
                 https://isupport.krengeltech.com/rxs/xml_attributes_vs_elements/
